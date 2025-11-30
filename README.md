@@ -5,7 +5,24 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound)
 
-Add sound notifications to your Filament database notifications. This package plays a sound when a new database notification is received in the Filament admin panel.
+Add sound notifications to your Filament database notifications. This package plays a sound when a new database notification is received in the Filament admin panel, with optional visual animation effects.
+
+## Features
+
+- 🔊 **Sound Notifications** - Play audio when new database notifications arrive
+- 🎨 **Visual Animation** - Optional pulse animation on notification badge
+- 🎛️ **Volume Control** - Adjustable volume levels (0.0 to 1.0)
+- 🎵 **Custom Sounds** - Use your own notification sound files
+- ⚙️ **Easy Configuration** - Fluent API for simple customization
+- 🔇 **Enable/Disable** - Toggle the plugin on/off as needed
+- 🌐 **Browser Compatibility** - Handles browser autoplay restrictions automatically
+- 🎯 **Filament 4 Ready** - Built for the latest Filament version
+
+## Requirements
+
+- PHP 8.2 or higher
+- Laravel 12.x
+- Filament 4.x
 
 ## Installation
 
@@ -38,7 +55,9 @@ public function panel(Panel $panel): Panel
 {
     return $panel
         // ...
-        ->plugin(FilamentNotificationSoundPlugin::make());
+        ->plugins([
+            FilamentNotificationSoundPlugin::make(),
+        ]);
 }
 ```
 
@@ -53,13 +72,13 @@ public function panel(Panel $panel): Panel
 {
     return $panel
         // ...
-        ->plugin(
+        ->plugins([
             FilamentNotificationSoundPlugin::make()
                 ->soundPath('/sounds/custom-notification.mp3') // Custom sound path
                 ->volume(0.5) // Volume (0.0 to 1.0)
-                ->showAnimation(true) // Show animation on notification
-                ->enabled(true) // Enable/disable the plugin
-        );
+                ->showAnimation(true) // Show animation on notification badge
+                ->enabled(true), // Enable/disable the plugin
+        ]);
 }
 ```
 
@@ -77,23 +96,6 @@ FilamentNotificationSoundPlugin::make()
 ## Publishing Assets
 
 If you need to customize the assets, you can publish them:
-
-```bash
-php artisan vendor:publish --tag="filament-notification-sound-assets"
-```
-
-## Troubleshooting
-
-If the sound is not playing:
-1. Ensure the sound file exists in the specified path.
-2. Check the browser console for any errors.
-3. Verify that the user has interacted with the document (browsers block auto-playing audio without user interaction).
-
-## Testing
-
-```bash
-composer test
-```
 
 ## Changelog
 
