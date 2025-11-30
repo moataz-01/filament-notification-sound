@@ -1,35 +1,33 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "moataz-01/filament-notification-sound",
+    "description": "Add sound notifications to Filament database notifications",
     "keywords": [
-        ":vendor_name",
+        "moataz-01",
         "laravel",
-        ":package_slug"
+        "filament-notification-sound"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/moataz-01/filament-notification-sound",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/moataz-01/filament-notification-sound/issues",
+        "source": "https://github.com/moataz-01/filament-notification-sound"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Moataz",
+            "email": "moatazsayed119@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
-        "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
+        "filament/filament": "^3.0|^4.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.9",
-        "nunomaduro/larastan": "^2.0.1",
+        "larastan/larastan": "^2.0",
         "orchestra/testbench": "^8.0",
         "pestphp/pest": "^2.1",
         "pestphp/pest-plugin-arch": "^2.0",
@@ -41,13 +39,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Moataz01\\FilamentNotificationSound\\": "src/",
+            "Moataz01\\FilamentNotificationSound\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Moataz01\\FilamentNotificationSound\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -67,10 +65,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Moataz01\\FilamentNotificationSound\\FilamentNotificationSoundServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentNotificationSound": "Moataz01\\FilamentNotificationSound\\Facades\\FilamentNotificationSound"
             }
         }
     },

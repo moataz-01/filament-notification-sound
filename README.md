@@ -1,62 +1,93 @@
-# :package_description
+# Filament Notification Sound
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound)
 
-<!--delete-->
----
-This repo can be used to scaffold a Filament plugin. Follow these steps to get started:
-
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Make something great!
----
-<!--/delete-->
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Add sound notifications to your Filament database notifications. This package plays a sound when a new database notification is received in the Filament admin panel.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
+composer require moataz-01/filament-notification-sound
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-config"
+php artisan vendor:publish --tag="filament-notification-sound-config"
 ```
 
-Optionally, you can publish the views using
+You can publish the sound files with:
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
+php artisan vendor:publish --tag="filament-notification-sound-sounds"
 ```
 
 ## Usage
 
+Register the plugin in your Filament Panel Provider:
+
 ```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+use Moataz01\FilamentNotificationSound\FilamentNotificationSoundPlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->plugin(FilamentNotificationSoundPlugin::make());
+}
 ```
+
+## Configuration
+
+You can configure the plugin using the fluent methods:
+
+```php
+use Moataz01\FilamentNotificationSound\FilamentNotificationSoundPlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->plugin(
+            FilamentNotificationSoundPlugin::make()
+                ->soundPath('/sounds/custom-notification.mp3') // Custom sound path
+                ->volume(0.5) // Volume (0.0 to 1.0)
+                ->showAnimation(true) // Show animation on notification
+                ->enabled(true) // Enable/disable the plugin
+        );
+}
+```
+
+## Customization
+
+### Custom Sound
+
+To use a custom sound, place your audio file in the `public` directory (e.g., `public/sounds/my-sound.mp3`) and configure the plugin to use it:
+
+```php
+FilamentNotificationSoundPlugin::make()
+    ->soundPath('/sounds/my-sound.mp3')
+```
+
+## Publishing Assets
+
+If you need to customize the assets, you can publish them:
+
+```bash
+php artisan vendor:publish --tag="filament-notification-sound-assets"
+```
+
+## Troubleshooting
+
+If the sound is not playing:
+1. Ensure the sound file exists in the specified path.
+2. Check the browser console for any errors.
+3. Verify that the user has interacted with the document (browsers block auto-playing audio without user interaction).
 
 ## Testing
 
@@ -78,7 +109,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Moataz](https://github.com/moataz-01)
 - [All Contributors](../../contributors)
 
 ## License

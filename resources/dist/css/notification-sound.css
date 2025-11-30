@@ -1,0 +1,1 @@
+@keyframes notification-pulse{0%{transform:scale(1);box-shadow:0 0 #ef4444b3}50%{transform:scale(1.2);box-shadow:0 0 0 10px #ef444400}to{transform:scale(1);box-shadow:0 0 #ef444400}}.notification-pulse{animation:notification-pulse 2s infinite}
