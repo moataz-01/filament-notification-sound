@@ -1,0 +1,26 @@
+name: Check Code Style with Pint
+
+on:
+  pull_request:
+    paths:
+      - '**.php'
+
+jobs:
+  pint-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: Run Pint Check
+        run: ./vendor/bin/pint --test
