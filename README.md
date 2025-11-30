@@ -1,6 +1,6 @@
 # Filament Notification Sound
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound#v1.0.0)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound)
