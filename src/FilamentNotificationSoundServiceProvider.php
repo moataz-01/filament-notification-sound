@@ -16,8 +16,7 @@ class FilamentNotificationSoundServiceProvider extends PackageServiceProvider
     {
         $package
             ->name(static::$name)
-            ->hasConfigFile()
-            ->hasViews();
+            ->hasConfigFile();
     }
 
     public function packageBooted(): void
