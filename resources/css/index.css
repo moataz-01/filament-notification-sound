@@ -1,20 +1,63 @@
-@keyframes notification-pulse {
+@keyframes bell-shake {
     0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        transform: rotate(0);
     }
 
-    50% {
-        transform: scale(1.2);
-        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    15% {
+        transform: rotate(5deg);
+    }
+
+    30% {
+        transform: rotate(-5deg);
+    }
+
+    45% {
+        transform: rotate(4deg);
+    }
+
+    60% {
+        transform: rotate(-4deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    85% {
+        transform: rotate(-2deg);
     }
 
     100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+        transform: rotate(0);
     }
 }
 
 .notification-pulse {
-    animation: notification-pulse 2s infinite;
+    animation: bell-shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform-origin: top center;
+}
+
+.notification-tooltip {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    background-color: #1f2937;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 50;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.notification-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
 }
