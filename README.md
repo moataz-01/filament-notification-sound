@@ -1,5 +1,7 @@
 # Filament Notification Sound
 
+![Filament Notification Sound Banner](art/banner.png)
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/moataz-01/filament-notification-sound.svg?style=flat-square)](https://packagist.org/packages/moataz-01/filament-notification-sound#v1.0.0)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/moataz-01/filament-notification-sound/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/moataz-01/filament-notification-sound/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
@@ -16,13 +18,13 @@ Add sound notifications to your Filament database notifications. This package pl
 - ⚙️ **Easy Configuration** - Fluent API for simple customization
 - 🔇 **Enable/Disable** - Toggle the plugin on/off as needed
 - 🌐 **Browser Compatibility** - Handles browser autoplay restrictions automatically
-- 🎯 **Filament 4 Ready** - Built for the latest Filament version
+- 🎯 **Filament 4 OR 5 Ready** - Built for the latest Filament version
 
 ## Requirements
 
 - PHP 8.2 or higher
 - Laravel 12.x
-- Filament 4.x
+- Filament 4.x || 5.x
 
 ## Installation
 
